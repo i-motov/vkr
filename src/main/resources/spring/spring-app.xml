@@ -4,4 +4,7 @@
 
     <bean class="ru.motov.vkr.repository.inmemory.InMemoryUserRepository" id="inmemoryUserRepository"/>
 
+    <bean class="ru.motov.vkr.service.UserService">
+        <constructor-arg name="repository" ref="inmemoryUserRepository"/>
+    </bean>
 </beans>

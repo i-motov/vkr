@@ -1,6 +1,7 @@
-package ru.motov.vkr.repository;
+package ru.motov.vkr.repository.inmemory;
 
 import ru.motov.vkr.model.Meal;
+import ru.motov.vkr.repository.MealRepository;
 import ru.motov.vkr.util.MealsUtil;
 
 import java.util.Collection;

@@ -3,7 +3,7 @@ package ru.motov.vkr.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.motov.vkr.model.Meal;
-import ru.motov.vkr.repository.InMemoryMealRepository;
+import ru.motov.vkr.repository.inmemory.InMemoryMealRepository;
 import ru.motov.vkr.repository.MealRepository;
 import ru.motov.vkr.util.MealsUtil;
 

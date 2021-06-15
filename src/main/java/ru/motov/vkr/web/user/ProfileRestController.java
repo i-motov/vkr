@@ -1,9 +1,11 @@
 package ru.motov.vkr.web.user;
 
+import org.springframework.stereotype.Controller;
 import ru.motov.vkr.model.User;
 
 import static ru.motov.vkr.web.SecurityUtil.authUserId;
 
+@Controller
 public class ProfileRestController extends AbstractUserController {
 
     public User get() {

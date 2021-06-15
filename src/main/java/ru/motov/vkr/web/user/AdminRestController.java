@@ -1,9 +1,11 @@
 package ru.motov.vkr.web.user;
 
+import org.springframework.stereotype.Controller;
 import ru.motov.vkr.model.User;
 
 import java.util.List;
 
+@Controller
 public class AdminRestController extends AbstractUserController {
 
     @Override

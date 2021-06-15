@@ -1,5 +1,6 @@
 package ru.motov.vkr.service;
 
+import org.springframework.stereotype.Service;
 import ru.motov.vkr.model.User;
 import ru.motov.vkr.repository.UserRepository;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import static ru.motov.vkr.util.ValidationUtil.checkNotFound;
 import static ru.motov.vkr.util.ValidationUtil.checkNotFoundWithId;
 
+@Service
 public class UserService {
 
     private final UserRepository repository;

@@ -20,8 +20,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static ru.motov.vkr.repository.inmemory.InMemoryUserRepository.ADMIN_ID;
-import static ru.motov.vkr.repository.inmemory.InMemoryUserRepository.USER_ID;
+import static ru.motov.vkr.UserTestData.ADMIN_ID;
+import static ru.motov.vkr.UserTestData.USER_ID;
 
 @Repository
 public class InMemoryMealRepository implements MealRepository {

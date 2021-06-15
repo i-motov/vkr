@@ -1,6 +1,7 @@
 package ru.motov.vkr.repository.inmemory;
 
 import org.springframework.stereotype.Repository;
+import ru.motov.vkr.UserTestData;
 import ru.motov.vkr.model.User;
 import ru.motov.vkr.repository.UserRepository;
 
@@ -8,11 +9,18 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static ru.motov.vkr.UserTestData.admin;
+import static ru.motov.vkr.UserTestData.user;
+
+
 @Repository
 public class InMemoryUserRepository extends InMemoryBaseRepository<User> implements UserRepository {
 
-    static final int USER_ID = 1;
-    static final int ADMIN_ID = 2;
+    public void init() {
+        map.clear();
+        map.put(UserTestData.USER_ID, user);
+        map.put(UserTestData.ADMIN_ID, admin);
+    }
 
     @Override
     public List<User> getAll() {

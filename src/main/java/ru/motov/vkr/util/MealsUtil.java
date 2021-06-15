@@ -1,7 +1,7 @@
 package ru.motov.vkr.util;
 
 import ru.motov.vkr.model.Meal;
-import ru.motov.vkr.model.MealTo;
+import ru.motov.vkr.to.MealTo;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package ru.motov.vkr.model;
+package ru.motov.vkr.to;
 
 import java.time.LocalDateTime;
 

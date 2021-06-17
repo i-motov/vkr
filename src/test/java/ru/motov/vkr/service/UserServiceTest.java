@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.motov.vkr.Profiles;
+import ru.motov.vkr.ActiveDbProfileResolver;
 import ru.motov.vkr.UserTestData;
 import ru.motov.vkr.model.Role;
 import ru.motov.vkr.model.User;
@@ -28,7 +28,7 @@ import static ru.motov.vkr.UserTestData.*;
 })
 @RunWith(SpringRunner.class)
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
-@ActiveProfiles(resolver = Profiles.ActiveDbProfileResolver.class)
+@ActiveProfiles(resolver = ActiveDbProfileResolver.class)
 public class UserServiceTest {
 
     @Autowired

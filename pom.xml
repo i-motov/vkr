@@ -42,7 +42,7 @@
     </properties>
 
     <build>
-        <finalName>topjava</finalName>
+        <finalName>vkr</finalName>
         <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
@@ -185,7 +185,7 @@
                 <dependency>
                     <groupId>org.hsqldb</groupId>
                     <artifactId>hsqldb</artifactId>
-                    <version>2.3.4</version>
+                    <version>2.5.1</version>
                 </dependency>
             </dependencies>
         </profile>

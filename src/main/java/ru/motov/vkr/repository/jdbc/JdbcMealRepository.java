@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.motov.vkr.model.Meal;
 import ru.motov.vkr.repository.MealRepository;
+import ru.motov.vkr.util.ValidationUtil;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -39,6 +40,8 @@ public class JdbcMealRepository implements MealRepository {
     @Override
     @Transactional
     public Meal save(Meal meal, int userId) {
+        ValidationUtil.validate(meal);
+
         MapSqlParameterSource map = new MapSqlParameterSource()
                 .addValue("id", meal.getId())
                 .addValue("description", meal.getDescription())

@@ -13,6 +13,7 @@ import org.springframework.util.CollectionUtils;
 import ru.motov.vkr.model.Role;
 import ru.motov.vkr.model.User;
 import ru.motov.vkr.repository.UserRepository;
+import ru.motov.vkr.util.ValidationUtil;
 
 import java.util.*;
 
@@ -41,6 +42,8 @@ public class JdbcUserRepository implements UserRepository {
     @Override
     @Transactional
     public User save(User user) {
+        ValidationUtil.validate(user);
+
         BeanPropertySqlParameterSource parameterSource = new BeanPropertySqlParameterSource(user);
 
         if (user.isNew()) {

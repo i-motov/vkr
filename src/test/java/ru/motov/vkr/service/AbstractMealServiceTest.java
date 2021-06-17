@@ -18,7 +18,7 @@ import static ru.motov.vkr.UserTestData.USER_ID;
 public abstract class AbstractMealServiceTest extends AbstractServiceTest {
 
     @Autowired
-    private MealService service;
+    protected MealService service;
 
     @Test
     public void delete() {

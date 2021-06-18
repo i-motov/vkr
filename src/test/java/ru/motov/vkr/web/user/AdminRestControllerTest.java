@@ -9,6 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.motov.vkr.UserTestData.ADMIN_ID;
+import static ru.motov.vkr.UserTestData.admin;
+import static ru.motov.vkr.web.json.JsonUtil.writeIgnoreProps;
 
 class AdminRestControllerTest extends AbstractControllerTest {
 
@@ -20,6 +22,7 @@ class AdminRestControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 // https://jira.spring.io/browse/SPR-14472
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(writeIgnoreProps(admin, "registered")));
     }
 }

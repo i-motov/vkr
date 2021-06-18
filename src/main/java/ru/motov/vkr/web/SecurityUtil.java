@@ -2,7 +2,7 @@ package ru.motov.vkr.web;
 
 import ru.motov.vkr.model.AbstractBaseEntity;
 
-import static ru.motov.vkr.util.MealsUtil.DEFAULT_CALORIES_PER_DAY;
+import static ru.motov.vkr.util.UserUtil.DEFAULT_CALORIES_PER_DAY;
 
 public class SecurityUtil {
 

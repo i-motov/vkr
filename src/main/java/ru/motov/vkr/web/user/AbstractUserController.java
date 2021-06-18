@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.motov.vkr.model.User;
 import ru.motov.vkr.service.UserService;
+import ru.motov.vkr.to.UserTo;
+import ru.motov.vkr.util.UserUtil;
 
 import java.util.List;
 
@@ -25,6 +27,11 @@ public abstract class AbstractUserController {
     public User get(int id) {
         log.info("get {}", id);
         return service.get(id);
+    }
+
+    public void create(UserTo userTo) {
+        log.info("create from to {}", userTo);
+        create(UserUtil.createNewFromTo(userTo));
     }
 
     public User create(User user) {

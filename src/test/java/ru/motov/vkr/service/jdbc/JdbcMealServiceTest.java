@@ -6,5 +6,5 @@ import ru.motov.vkr.service.AbstractMealServiceTest;
 import static ru.motov.vkr.Profiles.JDBC;
 
 @ActiveProfiles(JDBC)
-public class JdbcMealServiceTest extends AbstractMealServiceTest {
+class JdbcMealServiceTest extends AbstractMealServiceTest {
 }

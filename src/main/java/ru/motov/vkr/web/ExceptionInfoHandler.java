@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import ru.motov.vkr.util.ValidationUtil;
-import ru.motov.vkr.util.exception.ErrorInfo;
-import ru.motov.vkr.util.exception.ErrorType;
-import ru.motov.vkr.util.exception.IllegalRequestDataException;
-import ru.motov.vkr.util.exception.NotFoundException;
+import ru.motov.vkr.util.exception.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -45,6 +42,11 @@ public class ExceptionInfoHandler {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorInfo> handleError(HttpServletRequest req, NotFoundException e) {
         return logAndGetErrorInfo(req, e, false, DATA_NOT_FOUND);
+    }
+
+    @ExceptionHandler(ApplicationException.class)
+    public ResponseEntity<ErrorInfo> updateRestrictionError(HttpServletRequest req, ApplicationException appEx) {
+        return logAndGetErrorInfo(req, appEx, false, appEx.getType(), messageSourceAccessor.getMessage(appEx.getMsgCode()));
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)

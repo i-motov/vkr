@@ -5,10 +5,12 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.motov.vkr.model.User;
 import ru.motov.vkr.to.UserTo;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 import java.util.List;
 
+@ApiIgnore
 @RestController
 @RequestMapping(value = "/admin/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AdminUIController extends AbstractUserController {

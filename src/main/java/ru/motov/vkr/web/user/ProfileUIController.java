@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.motov.vkr.AuthorizedUser;
 import ru.motov.vkr.to.UserTo;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 
+@ApiIgnore
 @Controller
 @RequestMapping("/profile")
 public class ProfileUIController extends AbstractUserController {

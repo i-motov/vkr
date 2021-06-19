@@ -1,6 +1,7 @@
 package ru.motov.vkr.to;
 
 import org.hibernate.validator.constraints.Range;
+import ru.motov.vkr.HasIdAndEmail;
 import ru.motov.vkr.util.UserUtil;
 
 import javax.validation.constraints.Email;
@@ -10,7 +11,7 @@ import javax.validation.constraints.Size;
 import java.io.Serial;
 import java.io.Serializable;
 
-public class UserTo extends BaseTo implements Serializable {
+public class UserTo extends BaseTo implements HasIdAndEmail, Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -58,6 +59,7 @@ public class UserTo extends BaseTo implements Serializable {
         this.name = name;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }

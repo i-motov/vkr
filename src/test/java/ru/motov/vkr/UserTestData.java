@@ -2,6 +2,7 @@ package ru.motov.vkr;
 
 import ru.motov.vkr.model.Role;
 import ru.motov.vkr.model.User;
+import ru.motov.vkr.web.json.JsonUtil;
 
 import java.util.Collections;
 import java.util.Date;
@@ -47,5 +48,9 @@ public class UserTestData {
         updated.setEnabled(false);
         updated.setRoles(Collections.singletonList(Role.ADMIN));
         return updated;
+    }
+
+    public static String jsonWithPassword(User user, String passw) {
+        return JsonUtil.writeAdditionProps(user, "password", passw);
     }
 }

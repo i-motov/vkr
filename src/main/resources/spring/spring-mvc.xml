@@ -69,4 +69,8 @@
         <property name="basenames" value="file:///#{systemEnvironment[VKR_ROOT]}/config/messages/app"/>
         <property name="fallbackToSystemLocale" value="false"/>
     </bean>
+
+    <mvc:interceptors>
+        <bean class="ru.motov.vkr.web.interceptor.ModelInterceptor"/>
+    </mvc:interceptors>
 </beans>

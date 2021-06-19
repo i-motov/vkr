@@ -9,8 +9,8 @@ cache:
 
 # https://docs.travis-ci.com/user/database-setup/#PostgreSQL
 before_script:
-  - psql -c 'create database topjava' -U postgres
-  - psql -c 'create user "user"; grant all privileges on database topjava to "user"' -U postgres
+  - psql -c 'create database vkr' -U postgres
+  - psql -c 'create user "user"; grant all privileges on database vkr to "user"' -U postgres
 
 # https://docs.travis-ci.com/user/customizing-the-build#Building-Specific-Branches
 branches:
@@ -20,6 +20,10 @@ branches:
 # https://stackoverflow.com/a/49852690/548473:
 services:
   - postgresql
+
+#https://docs.travis-ci.com/user/environment-variables#Default-Environment-Variables
+env:
+  - VKR_ROOT=$TRAVIS_BUILD_DIR
 
 # https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
 #notifications:

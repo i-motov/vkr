@@ -5,6 +5,7 @@
 
     <context:component-scan base-package="ru.motov.vkr.**.repository.inmemory"/>
     <context:component-scan base-package="ru.motov.**.service"/>
-    <context:component-scan base-package="ru.motov.vkr.**.web"/>
+    <context:component-scan base-package="ru.motov.vkr.**.web.user"/>
+    <context:component-scan base-package="ru.motov.vkr.**.web.meal"/>
     <bean class="org.springframework.security.crypto.password.NoOpPasswordEncoder" id="passwordEncoder"/>
 </beans>

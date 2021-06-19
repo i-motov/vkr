@@ -13,6 +13,8 @@ import ru.motov.vkr.web.SecurityUtil;
 
 import javax.validation.Valid;
 
+import static ru.motov.vkr.web.ExceptionInfoHandler.EXCEPTION_DUPLICATE_EMAIL;
+
 @Controller
 @RequestMapping("/profile")
 public class ProfileUIController extends AbstractUserController {

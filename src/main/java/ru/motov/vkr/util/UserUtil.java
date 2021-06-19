@@ -1,5 +1,7 @@
 package ru.motov.vkr.util;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.StringUtils;
 import ru.motov.vkr.model.Role;
 import ru.motov.vkr.model.User;
 import ru.motov.vkr.to.UserTo;
@@ -21,6 +23,13 @@ public class UserUtil {
         user.setEmail(userTo.getEmail().toLowerCase());
         user.setCaloriesPerDay(userTo.getCaloriesPerDay());
         user.setPassword(userTo.getPassword());
+        return user;
+    }
+
+    public static User prepareToSave(User user, PasswordEncoder passwordEncoder) {
+        String password = user.getPassword();
+        user.setPassword(StringUtils.hasText(password) ? passwordEncoder.encode(password) : password);
+        user.setEmail(user.getEmail().toLowerCase());
         return user;
     }
 }

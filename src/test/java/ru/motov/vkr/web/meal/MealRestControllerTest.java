@@ -7,19 +7,20 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import ru.motov.vkr.model.Meal;
 import ru.motov.vkr.service.MealService;
+import ru.motov.vkr.util.exception.ErrorType;
 import ru.motov.vkr.util.exception.NotFoundException;
 import ru.motov.vkr.web.AbstractControllerTest;
 import ru.motov.vkr.web.json.JsonUtil;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static ru.motov.vkr.MealTestData.getNew;
+import static ru.motov.vkr.MealTestData.getUpdated;
 import static ru.motov.vkr.MealTestData.*;
 import static ru.motov.vkr.TestUtil.readFromJson;
 import static ru.motov.vkr.TestUtil.userHttpBasic;
-import static ru.motov.vkr.UserTestData.USER_ID;
-import static ru.motov.vkr.UserTestData.user;
+import static ru.motov.vkr.UserTestData.*;
 import static ru.motov.vkr.util.MealsUtil.createTo;
 import static ru.motov.vkr.util.MealsUtil.getTos;
 
@@ -122,5 +123,29 @@ class MealRestControllerTest extends AbstractControllerTest {
                 .with(userHttpBasic(user)))
                 .andExpect(status().isOk())
                 .andExpect(MEAL_TO_MATCHER.contentJson(getTos(meals, user.getCaloriesPerDay())));
+    }
+
+    @Test
+    void createInvalid() throws Exception {
+        Meal invalid = new Meal(null, null, "Dummy", 200);
+        perform(MockMvcRequestBuilders.post(REST_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(JsonUtil.writeValue(invalid))
+                .with(userHttpBasic(admin)))
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.type").value(ErrorType.VALIDATION_ERROR.name()));
+    }
+
+    @Test
+    void updateInvalid() throws Exception {
+        Meal invalid = new Meal(MEAL1_ID, null, null, 6000);
+        perform(MockMvcRequestBuilders.put(REST_URL + MEAL1_ID)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(JsonUtil.writeValue(invalid))
+                .with(userHttpBasic(user)))
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.type").value(ErrorType.VALIDATION_ERROR.name()));
     }
 }

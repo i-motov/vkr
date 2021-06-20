@@ -15,12 +15,12 @@ import java.io.IOException;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static ru.motov.vkr.Profiles.HEROKU;
+//import static ru.motov.vkr.Profiles.HEROKU;
 import static ru.motov.vkr.TestUtil.userHttpBasic;
 import static ru.motov.vkr.UserTestData.*;
 import static ru.motov.vkr.util.exception.UpdateRestrictionException.EXCEPTION_UPDATE_RESTRICTION;
 
-@ActiveProfiles(HEROKU)
+//@ActiveProfiles(HEROKU)
 class HerokuRestControllerTest extends AbstractControllerTest {
 
     private static final String REST_URL = AdminRestController.REST_URL + '/';
